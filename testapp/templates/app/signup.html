@@ -1,0 +1,89 @@
+{% extends 'app/base.html' %}
+{% comment %} {% load static %} {% endcomment %}
+{% block title %}Customer Registration{% endblock title %}
+{% block main-content %}
+<section class="h-100 h-custom" style="background-color: #8fc4b7;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-8 col-xl-6">
+        <div class="card rounded-3">
+          {% comment %} <img src="https://media.istockphoto.com/id/1415206783/photo/paper-clipboard-with-text-sign-up-now.jpg?s=612x612&w=0&k=20&c=a7f_nHP-uwcjhf5-V5y04XJt4gJPiKMfZ563tYJNF74="
+            class="w-100" style="border-top-left-radius: .3rem; border-top-right-radius: .3rem;"
+            alt="Sample photo"> {% endcomment %}
+          <div class="card-body p-4 p-md-5">
+      <h3>Customer Registration Form </h1>
+        <hr>
+            <form action="{% url 'register' %}" method="post">
+              {% csrf_token %} {% comment %} {{ form.as_p }} {% endcomment %}
+              <div class="form-outline mb-4">
+                <label class="form-label" for="username">UseName</label><br />
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  class="form-control"
+                  required
+                /><br />
+                <label class="form-label" for="first_name">First Name</label><br />
+                <input
+                  type="text"
+                  id="first_name"
+                  name="first_name"
+                  class="form-control"
+                  required
+                /><br />
+                <label class="form-label" for="last_name">Last Name</label><br />
+                <input
+                  type="text"
+                  id="last_name"
+                  name="last_name"
+                  class="form-control"
+                  required
+                /><br />
+              </div>
+              <div class="form-outline mb-4">
+                <label class="form-label" for="email">Email</label><br />
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="form-control"
+                  required
+                /><br />
+              </div>
+              <div class="form-outline mb-4">
+                <label class="form-label" for="password">Password</label><br />
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  class="form-control"
+                  required
+                /><br />
+              </div>
+              <div class="form-outline mb-4">
+                <label class="form-label" for="password2"
+                  >Confirm Password</label
+                ><br />
+                <input
+                  type="password"
+                  id="password2"
+                  name="password2"
+                  class="form-control"
+                  required
+                /><br />
+              </div>
+              <br />
+              <button type="submit" id="submit">Register</button>
+              <div class="text-center text-primary fw-bold">
+                <small>Already exist ? <a href="{% url 'login1' %}" class="text-danger">Login here</a></small>
+              </div> 
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </section>
+    {% endblock main-content %}
+    

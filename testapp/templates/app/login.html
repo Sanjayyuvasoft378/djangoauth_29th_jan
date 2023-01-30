@@ -1,0 +1,70 @@
+{% extends 'app/base.html' %} 
+{% block title %} Customer Login Here {% endblock title %} 
+
+{% block main-content %}
+  <section style="background-color: #61939a">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-xl-10">
+          <div class="card" style="border-radius: 1rem">
+            <div class="row g-0">
+              <div class="col-md-6 col-lg-5 d-none d-md-block">
+                {% comment %} <img
+                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp"
+                  alt="login form"
+                  class="img-fluid"
+                  style="border-radius: 1rem 0 0 1rem"
+                /> {% endcomment %}
+              </div>
+              <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                <div class="card-body p-4 p-lg-5 text-black">
+                  <form action="{% url 'login' %}" method="post">
+                    {% csrf_token %}
+                    <div class="form-outline mb-4">
+                <label class="form-label" for="email">Email</label><br />
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="form-control"
+                  required
+                /><br />
+              </div>
+              <div class="form-outline mb-4">
+                <label class="form-label" for="password">Password</label><br />
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  class="form-control"
+                  required
+                /><br />
+              </div>
+                    <center>
+                      <button
+                        type="submit"
+                        id="submit"
+                        class="btn btn-primary"
+                        style="width: 10rem"
+                      >
+                        Login
+                      </button>
+                    </center>
+                    <div class="text-center text-primary fw-bold">
+                      <small
+                        >New User
+                        <a href="{% url 'signup' %}" class="text-danger"
+                          >Create an Account</a
+                        ></small
+                      >
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock main-content %}
